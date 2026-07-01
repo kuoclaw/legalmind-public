@@ -91,6 +91,40 @@
     .btn.secondary:hover { border-color: var(--teal); }
     .btn:disabled { opacity: .52; cursor: not-allowed; }
     .layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 18px; align-items: start; }
+    .market-shell { display: grid; gap: 18px; }
+    .market-hero {
+      display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(330px, .65fr); gap: 0;
+      overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: white;
+    }
+    .market-main { padding: 28px; background: linear-gradient(135deg, #ffffff 0%, #f3f7f5 100%); }
+    .market-eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .market-main h2 { max-width: 760px; margin: 12px 0 10px; font-size: 34px; line-height: 1.12; letter-spacing: 0; }
+    .market-main p { max-width: 760px; margin: 0; color: var(--graphite); font-size: 15px; line-height: 1.65; }
+    .market-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .market-side { border-left: 1px solid var(--line); background: var(--pine); color: white; padding: 24px; }
+    .market-side h3 { margin: 0 0 16px; font-size: 13px; color: rgba(255,255,255,.72); text-transform: uppercase; letter-spacing: .08em; }
+    .market-metric { padding: 15px 0; border-top: 1px solid rgba(255,255,255,.14); }
+    .market-metric span { display: block; color: rgba(255,255,255,.62); font-size: 11px; }
+    .market-metric strong { display: block; margin-top: 5px; font-size: 24px; }
+    .market-metric small { display: block; margin-top: 4px; color: rgba(255,255,255,.58); font-size: 11px; line-height: 1.45; }
+    .market-details { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 18px; align-items: start; }
+    .opportunity-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+    .opportunity-card {
+      min-height: 184px; display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid var(--line); border-radius: 7px; background: white; padding: 16px; text-align: left;
+    }
+    .opportunity-card:hover { border-color: rgba(45,123,116,.45); box-shadow: 0 10px 30px rgba(23,33,38,.06); }
+    .opportunity-card.active { border-color: var(--teal); box-shadow: inset 0 0 0 1px var(--teal); }
+    .opportunity-card h3 { margin: 10px 0 8px; font-size: 15px; line-height: 1.35; }
+    .opportunity-card .deal-meta { min-height: 36px; }
+    .opportunity-card .deal-money { margin-top: 16px; }
+    .snapshot-panel { padding: 18px; }
+    .snapshot-panel h3 { margin: 0 0 12px; font-size: 15px; }
+    .snapshot-list { margin: 0; padding: 0; list-style: none; }
+    .snapshot-list li { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--fog); font-size: 12px; }
+    .snapshot-list li:last-child { border-bottom: 0; }
+    .snapshot-list span { color: var(--muted); }
+    .snapshot-list strong { text-align: right; }
     .panel { border: 1px solid var(--line); border-radius: 7px; background: white; }
     .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 17px; border-bottom: 1px solid var(--line); }
     .panel-head h2 { margin: 0; font-size: 15px; }
@@ -170,7 +204,7 @@
     .docs tr:last-child td { border-bottom: 0; }
     .doc-name { font-weight: 700; }
     .doc-name small { display: block; margin-top: 3px; color: var(--muted); font-weight: 500; }
-    .auction-grid { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 18px; align-items: start; }
+    .auction-grid { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 18px; align-items: start; }
     .auction-status { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px; border-bottom: 1px solid var(--line); }
     .auction-status strong { display: block; }
     .auction-status p { margin: 4px 0 0; color: var(--graphite); font-size: 12px; }
@@ -183,6 +217,28 @@
     .form-help { margin: -4px 0 14px; color: var(--muted); font-size: 11px; line-height: 1.5; }
     .confirm { display: none; margin-top: 13px; padding: 11px; border-radius: 4px; background: rgba(45,123,116,.1); color: var(--pine); font-size: 12px; line-height: 1.5; }
     .confirm.show { display: block; }
+    .market-board { padding: 18px; }
+    .price-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-bottom: 16px; }
+    .price-card { border: 1px solid var(--line); border-radius: 6px; background: var(--pearl); padding: 14px; }
+    .price-card.leader { border-color: rgba(45,123,116,.45); background: rgba(45,123,116,.08); }
+    .price-card span { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+    .price-card strong { display: block; margin-top: 7px; font-size: 24px; }
+    .price-card small { display: block; margin-top: 5px; color: var(--graphite); font-size: 11px; line-height: 1.45; }
+    .orderbook { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+    .orderbook-head, .order-row { display: grid; grid-template-columns: 1fr 120px 110px 92px; align-items: center; gap: 12px; }
+    .orderbook-head { background: var(--pearl); color: var(--muted); padding: 11px 14px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+    .order-row { position: relative; padding: 13px 14px; border-top: 1px solid var(--line); font-size: 12px; overflow: hidden; }
+    .order-row::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--depth); background: rgba(45,123,116,.08); pointer-events: none; }
+    .order-row > * { position: relative; }
+    .order-row strong { display: block; }
+    .order-row small { display: block; margin-top: 3px; color: var(--muted); }
+    .share-pill { display: inline-flex; justify-content: center; min-width: 58px; padding: 5px 8px; border-radius: 999px; background: rgba(45,123,116,.12); color: var(--teal); font-weight: 800; }
+    .auction-ticket { padding: 18px; }
+    .auction-ticket h2 { margin: 0 0 6px; font-size: 17px; }
+    .auction-ticket p { margin: 0 0 16px; color: var(--graphite); font-size: 12px; line-height: 1.55; }
+    .quick-shares { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; margin: -4px 0 14px; }
+    .quick-share { min-height: 34px; border: 1px solid var(--line); border-radius: 4px; background: white; color: var(--ink); font-weight: 800; }
+    .quick-share.active { border-color: var(--teal); background: rgba(45,123,116,.09); color: var(--teal); }
     .scenario-grid { display: grid; grid-template-columns: 330px minmax(0,1fr); gap: 18px; align-items: start; }
     .scenario-controls { padding: 18px; }
     .scenario-controls h2 { margin: 0 0 15px; font-size: 17px; }
@@ -200,13 +256,21 @@
     .water-track { height: 17px; border-radius: 3px; background: var(--fog); overflow: hidden; }
     .water-fill { height: 100%; border-radius: 3px; }
     .fee-note { padding: 14px 16px; border-top: 1px solid var(--line); background: var(--pearl); color: var(--graphite); font-size: 11px; line-height: 1.6; }
-    .compliance-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .compliance-grid { display: grid; grid-template-columns: 360px minmax(0,1fr); gap: 18px; align-items: start; }
     .compliance-item { padding: 17px; border: 1px solid var(--line); border-radius: 6px; background: white; }
     .compliance-item h3 { margin: 0; font-size: 14px; }
     .compliance-item p { margin: 8px 0 0; color: var(--graphite); font-size: 12px; line-height: 1.6; }
+    .profile-card { padding: 22px; text-align: center; }
+    .profile-avatar { width: 64px; height: 64px; display: grid; place-items: center; margin: 0 auto 14px; border-radius: 50%; background: var(--pine); color: white; font-size: 20px; font-weight: 800; }
+    .profile-card h2 { margin: 0; font-size: 20px; }
+    .profile-card p { margin: 7px 0 0; color: var(--graphite); line-height: 1.5; }
+    .profile-meta { margin-top: 18px; text-align: left; }
+    .profile-sections { display: grid; gap: 14px; }
     .disclaimer { margin-top: 24px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; line-height: 1.6; }
     @media (max-width: 1100px) {
-      .layout, .auction-grid, .scenario-grid { grid-template-columns: 1fr; }
+      .layout, .auction-grid, .scenario-grid, .market-hero, .market-details, .compliance-grid { grid-template-columns: 1fr; }
+      .market-side { border-left: 0; border-top: 1px solid var(--line); }
+      .opportunity-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .deal-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
       .deal-item { border-right: 1px solid var(--line); }
       .facts, .matrix { grid-template-columns: 1fr; }
@@ -221,7 +285,11 @@
       .page-head, .asset-title-row, .access-bar { align-items: flex-start; flex-direction: column; }
       .asset-actions { justify-content: flex-start; }
       .deal-list { display: block; }
-      .kpis, .workflow, .economics, .compliance-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .kpis, .workflow, .economics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .market-main h2 { font-size: 27px; }
+      .opportunity-grid, .price-strip { grid-template-columns: 1fr; }
+      .orderbook-head, .order-row { grid-template-columns: 1fr 82px 80px; }
+      .orderbook-head span:nth-child(4), .order-row > span:nth-child(4) { display: none; }
       .detail-grid, .milestones { grid-template-columns: 1fr; }
       .milestone { padding-bottom: 15px; }
       .kpi:nth-child(2) { border-right: 0; }
@@ -244,7 +312,7 @@
           <button class="nav-btn" data-view="diligence">盡調與文件</button>
           <button class="nav-btn" data-view="auction">融資競標</button>
           <button class="nav-btn" data-view="economics">回收模型</button>
-          <button class="nav-btn" data-view="compliance">合規中心</button>
+          <button class="nav-btn" data-view="compliance">用戶資料</button>
         </nav>
         <div class="account">
           <div class="account-copy"><strong>Andy Chen</strong><span>KYC / AML VERIFIED</span></div>
@@ -255,123 +323,76 @@
       <main class="content">
         <section class="view active" data-view-panel="dealroom">
           <div class="page-head">
-            <div><h1>投資機會</h1><p>檢視經匿名化處理、符合初步流通條件的法律融資案件。</p></div>
+            <div><h1>投資機會</h1><p>投資人登入後看到的匿名法律資產市場，先快速判斷案件規模、募資條件與可閱覽資料。</p></div>
           </div>
-          <div class="layout">
-            <div class="panel deal-list">
-              <div class="panel-head"><h2>案件列表</h2><span id="dealCount">6 件</span></div>
-              <button class="deal-item active" data-case="ip014">
-                <div class="deal-top"><span class="deal-id">LM-IP-014</span><span class="badge live">開放投標</span></div>
-                <h3>半導體智慧財產權執行資產</h3>
-                <div class="deal-meta">專利侵權 · 美國聯邦法院</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$3.0M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$150K</strong></div></div>
-                <div class="deal-foot"><span>文件 4/6</span><span>截止 17:42</span></div>
-              </button>
-              <button class="deal-item" data-case="com011">
-                <div class="deal-top"><span class="deal-id">LM-COM-011</span><span class="badge review">文件審閱</span></div>
-                <h3>跨境 SaaS 合約違約請求權</h3>
-                <div class="deal-meta">商業爭議 · 新加坡</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$5.2M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$280K</strong></div></div>
-                <div class="deal-foot"><span>文件 3/7</span><span>更新 2 天前</span></div>
-              </button>
-              <button class="deal-item" data-case="arb008">
-                <div class="deal-top"><span class="deal-id">LM-ARB-008</span><span class="badge locked">暫停流通</span></div>
-                <h3>製造設備採購仲裁資產</h3>
-                <div class="deal-meta">國際仲裁 · 香港</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$4.5M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$210K</strong></div></div>
-                <div class="deal-foot"><span>文件 2/6</span><span>等待補件</span></div>
-              </button>
-              <button class="deal-item" data-case="emp021">
-                <div class="deal-top"><span class="deal-id">LM-EMP-021</span><span class="badge review">匿名預覽</span></div>
-                <h3>核心人才競業與營業秘密請求權</h3>
-                <div class="deal-meta">僱傭與營業秘密 · 台灣</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$2.4M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$95K</strong></div></div>
-                <div class="deal-foot"><span>Teaser only</span><span>更新 4 天前</span></div>
-              </button>
-              <button class="deal-item" data-case="ene019">
-                <div class="deal-top"><span class="deal-id">LM-ENE-019</span><span class="badge live">接受意向</span></div>
-                <h3>再生能源 EPC 延誤損害請求權</h3>
-                <div class="deal-meta">工程合約爭議 · 澳洲</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$8.1M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$360K</strong></div></div>
-                <div class="deal-foot"><span>Teaser only</span><span>新增案件</span></div>
-              </button>
-              <button class="deal-item" data-case="med016">
-                <div class="deal-top"><span class="deal-id">LM-MED-016</span><span class="badge review">資料整理</span></div>
-                <h3>醫療器材專利授權爭議</h3>
-                <div class="deal-meta">授權與專利 · 德國</div>
-                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$6.7M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$240K</strong></div></div>
-                <div class="deal-foot"><span>Teaser only</span><span>更新 1 天前</span></div>
-              </button>
+          <div class="market-shell">
+            <section class="market-hero">
+              <div class="market-main">
+                <div class="market-eyebrow"><span id="selectedId">LM-IP-014 · ANONYMIZED TEASER</span><span class="badge live" id="selectedStage">開放</span></div>
+                <h2 id="selectedTitle">半導體智慧財產權執行資產</h2>
+                <p id="selectedDescription">台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路</p>
+                <div class="market-actions">
+                  <button class="btn secondary" id="selectedDiligenceButton" data-go="diligence">檢視盡調</button>
+                  <button class="btn primary" id="selectedAuctionButton" data-go="auction">進入投標</button>
+                </div>
+              </div>
+              <aside class="market-side">
+                <h3>Deal snapshot</h3>
+                <div class="market-metric"><span>Claim GMV</span><strong id="selectedClaim">US$3.0M</strong><small>標稱請求權價值</small></div>
+                <div class="market-metric"><span>募資目標</span><strong id="selectedFunding">US$150K</strong><small id="selectedFundingNote">完整認購優先</small></div>
+                <div class="market-metric"><span>上行情境回收</span><strong id="selectedUpside">US$9.0M</strong><small>非保證回收</small></div>
+              </aside>
+            </section>
+
+            <div class="market-details">
+              <section class="panel snapshot-panel">
+                <h3>案件摘要</h3>
+                <ul class="snapshot-list">
+                  <li><span>案件類型</span><strong id="selectedType">半導體零組件專利侵權</strong></li>
+                  <li><span>程序路徑</span><strong id="selectedPath">美國聯邦法院／德拉瓦 SPV</strong></li>
+                  <li><span>案件時間軸</span><strong id="selectedTimeline">2023 Q4 發現；2024 Q2 完成初步比對</strong></li>
+                  <li><span>資金用途</span><strong id="selectedUse">美國律師費、專家報告、技術拆解、文件調閱</strong></li>
+                  <li><span>已揭露資料</span><strong id="selectedEvidence">專利登記、claim chart、產品拆解、通路截圖</strong></li>
+                  <li><span>待補文件</span><strong id="selectedPending">U.S. counsel memo、完整專家損害額模型</strong></li>
+                </ul>
+                <div class="limited-teaser" id="limitedTeaser"><strong>此案件目前僅開放匿名 teaser</strong><p>投資人可先檢視案件類型、Claim GMV 與資金需求；完整證據鏈、法律備忘錄及融資競標將於案件通過流通審查後開放。</p></div>
+              </section>
+              <section class="panel snapshot-panel full-detail-section">
+                <h3>投資結構</h3>
+                <div class="term-row"><span>融資工具</span><strong>案件收益分成協議</strong></div>
+                <div class="term-row"><span>資金承諾</span><strong>最高 US$150,000</strong></div>
+                <div class="term-row"><span>目前領先條件</span><strong>回收比例 40%</strong></div>
+                <div class="term-row"><span>法律成本優先償還</span><strong>US$150,000</strong></div>
+                <div class="term-row"><span>平台媒合費</span><strong>Claim GMV 的 2.5%</strong></div>
+              </section>
             </div>
 
-            <article class="panel">
-              <div class="asset-header">
-                <div class="asset-title-row">
-                  <div><span class="deal-id" id="selectedId">LM-IP-014 · ANONYMIZED TEASER</span><h2 id="selectedTitle">半導體智慧財產權執行資產</h2><p id="selectedDescription">台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路</p></div>
-                  <div class="asset-actions">
-                    <button class="btn secondary" id="selectedDiligenceButton" data-go="diligence">檢視盡調</button>
-                    <button class="btn primary" id="selectedAuctionButton" data-go="auction">進入投標</button>
-                  </div>
-                </div>
-              </div>
-              <div class="kpis">
-                <div class="kpi"><span>Claim GMV</span><strong id="selectedClaim">US$3.0M</strong><small>標稱請求權價值</small></div>
-                <div class="kpi"><span>募資目標</span><strong id="selectedFunding">US$150K</strong><small id="selectedFundingNote">完整認購優先</small></div>
-                <div class="kpi"><span>上行情境回收</span><strong id="selectedUpside">US$9.0M</strong><small>非保證回收</small></div>
-                <div class="kpi"><span>案件狀態</span><strong id="selectedStage">開放投標</strong><small id="selectedStageNote">完整盡調已開放</small></div>
-              </div>
-              <div class="section">
-                <h3>案件摘要</h3>
-                <div class="facts">
-                  <div class="fact"><span>案件類型</span><strong id="selectedType">半導體零組件專利侵權</strong></div>
-                  <div class="fact"><span>程序路徑</span><strong id="selectedPath">美國聯邦法院／德拉瓦 SPV</strong></div>
-                  <div class="fact"><span>案件時間軸</span><strong id="selectedTimeline">2023 Q4 發現；2024 Q2 完成初步比對</strong></div>
-                  <div class="fact"><span>資金用途</span><strong id="selectedUse">美國律師費、專家報告、技術拆解、文件調閱</strong></div>
-                  <div class="fact"><span>已揭露資料</span><strong id="selectedEvidence">專利登記、claim chart、產品拆解、通路截圖</strong></div>
-                  <div class="fact"><span>待補文件</span><strong id="selectedPending">U.S. counsel memo、完整專家損害額模型</strong></div>
-                </div>
-              </div>
-              <div class="limited-teaser" id="limitedTeaser"><strong>此案件目前僅開放匿名 teaser</strong><p>投資人可先檢視案件類型、Claim GMV 與資金需求；完整證據鏈、法律備忘錄及融資競標將於案件通過流通審查後開放。</p></div>
-              <div class="section full-detail-section">
-                <div class="detail-grid">
-                  <div class="detail-block">
-                    <h3>投資結構</h3>
-                    <div class="term-row"><span>融資工具</span><strong>案件收益分成協議</strong></div>
-                    <div class="term-row"><span>資金承諾</span><strong>最高 US$150,000</strong></div>
-                    <div class="term-row"><span>目前領先條件</span><strong>回收比例 40%</strong></div>
-                    <div class="term-row"><span>法律成本優先償還</span><strong>US$150,000</strong></div>
-                    <div class="term-row"><span>平台媒合費</span><strong>Claim GMV 的 2.5%</strong></div>
-                  </div>
-                  <div class="detail-block">
-                    <h3>投資人待確認事項</h3>
-                    <ul class="focus-list">
-                      <li>完整專家損害額模型仍待補入資料室。</li>
-                      <li>U.S. counsel memo 尚待外部律師確認程序路徑。</li>
-                      <li>被告海外應收款已有初步紀錄，完整資產地圖須 NDA 後閱覽。</li>
-                      <li>上行情境 US$9M 僅供財務模擬，不是保證回收。</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="section full-detail-section">
-                <h3>重要里程碑</h3>
-                <div class="milestones">
-                  <div class="milestone"><span>2024 Q2</span><strong>初步侵權比對完成</strong></div>
-                  <div class="milestone"><span>2026-06-24</span><strong>匿名 teaser 上架</strong></div>
-                  <div class="milestone"><span>2026-07-01</span><strong>本輪競標截止</strong></div>
-                  <div class="milestone"><span>預計成交後 5 日</span><strong>SPV 撥款與案件啟動</strong></div>
-                </div>
-              </div>
-              <div class="section full-detail-section">
-                <h3>投資人操作進度</h3>
-                <div class="workflow">
-                  <div class="workflow-step"><span>STEP 1</span><strong>匿名 teaser 已閱覽</strong></div>
-                  <div class="workflow-step"><span>STEP 2</span><strong>NDA 文件待解鎖</strong></div>
-                  <div class="workflow-step"><span>STEP 3</span><strong>證據鏈待確認</strong></div>
-                  <div class="workflow-step"><span>STEP 4</span><strong>融資報價待提交</strong></div>
-                </div>
-              </div>
-            </article>
+            <section class="opportunity-grid">
+              <button class="opportunity-card deal-item active" data-case="ip014">
+                <div><div class="deal-top"><span class="deal-id">LM-IP-014</span><span class="badge live">開放</span></div><h3>半導體智慧財產權執行資產</h3><div class="deal-meta">專利侵權 · 美國聯邦法院</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$3.0M</strong></span><span>募資 <strong>US$150K</strong></span></div>
+              </button>
+              <button class="opportunity-card deal-item" data-case="com011">
+                <div><div class="deal-top"><span class="deal-id">LM-COM-011</span><span class="badge review">預覽</span></div><h3>跨境 SaaS 合約違約請求權</h3><div class="deal-meta">商業爭議 · 新加坡</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$5.2M</strong></span><span>募資 <strong>US$280K</strong></span></div>
+              </button>
+              <button class="opportunity-card deal-item" data-case="arb008">
+                <div><div class="deal-top"><span class="deal-id">LM-ARB-008</span><span class="badge review">預覽</span></div><h3>製造設備採購仲裁資產</h3><div class="deal-meta">國際仲裁 · 香港</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$4.5M</strong></span><span>募資 <strong>US$210K</strong></span></div>
+              </button>
+              <button class="opportunity-card deal-item" data-case="emp021">
+                <div><div class="deal-top"><span class="deal-id">LM-EMP-021</span><span class="badge review">預覽</span></div><h3>核心人才競業與營業秘密請求權</h3><div class="deal-meta">僱傭與營業秘密 · 台灣</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$2.4M</strong></span><span>募資 <strong>US$95K</strong></span></div>
+              </button>
+              <button class="opportunity-card deal-item" data-case="ene019">
+                <div><div class="deal-top"><span class="deal-id">LM-ENE-019</span><span class="badge review">預覽</span></div><h3>再生能源 EPC 延誤損害請求權</h3><div class="deal-meta">工程合約爭議 · 澳洲</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$8.1M</strong></span><span>募資 <strong>US$360K</strong></span></div>
+              </button>
+              <button class="opportunity-card deal-item" data-case="med016">
+                <div><div class="deal-top"><span class="deal-id">LM-MED-016</span><span class="badge review">預覽</span></div><h3>醫療器材專利授權爭議</h3><div class="deal-meta">授權與專利 · 德國</div></div>
+                <div class="deal-money"><span>Claim GMV <strong>US$6.7M</strong></span><span>募資 <strong>US$240K</strong></span></div>
+              </button>
+            </section>
           </div>
         </section>
 
@@ -412,26 +433,41 @@
 
         <section class="view" data-view-panel="auction">
           <div class="page-head">
-            <div><h1>競爭式融資競標</h1><p>LM-IP-014 · 依完整認購能力與要求回收比例排序。</p></div>
+            <div><h1>融資競標市場</h1><p>LM-IP-014 · 投資人用最低要求回收比例競爭完整資金承諾。</p></div>
             <button class="btn secondary" data-go="diligence">檢查盡調文件</button>
           </div>
           <div class="auction-grid">
             <div class="panel">
-              <div class="auction-status"><div><strong>本輪投標進行中</strong><p>募資目標 US$150,000 · 最低完整承諾優先</p></div><div class="countdown" id="countdown">17:42:18</div></div>
-              <table class="docs">
-                <thead><tr><th>排名</th><th>投資人</th><th>資金承諾</th><th>要求回收比例</th><th>狀態</th></tr></thead>
-                <tbody id="bidRows">
-                  <tr><td>#1</td><td class="doc-name">Meridian Claims Fund<small>完整認購</small></td><td>US$150,000</td><td>40%</td><td><span class="badge live">領先</span></td></tr>
-                  <tr><td>#2</td><td class="doc-name">Asteria Litigation Capital<small>完整認購</small></td><td>US$150,000</td><td>45%</td><td><span class="badge review">有效</span></td></tr>
-                  <tr><td>#3</td><td class="doc-name">Harbor Special Situations<small>部分認購</small></td><td>US$120,000</td><td>35%</td><td><span class="badge review">未達目標</span></td></tr>
-                </tbody>
-              </table>
-              <div class="fee-note">排序規則：完整認購優先；完整度相同時，要求回收比例較低者優先。</div>
+              <div class="auction-status"><div><strong>本輪競標進行中</strong><p>募資目標 US$150,000 · 完整認購後以要求回收比例排序</p></div><div class="countdown" id="countdown">17:42:18</div></div>
+              <div class="market-board">
+                <div class="price-strip">
+                  <div class="price-card leader"><span>最佳條件</span><strong>40%</strong><small>Meridian Claims Fund · US$150K</small></div>
+                  <div class="price-card"><span>資金覆蓋</span><strong>280%</strong><small>有效意向合計 US$420K</small></div>
+                  <div class="price-card"><span>成交門檻</span><strong>完整認購</strong><small>不足 US$150K 不列為領先報價</small></div>
+                </div>
+                <div class="orderbook">
+                  <div class="orderbook-head"><span>投資人</span><span>承諾金額</span><span>回收比例</span><span>狀態</span></div>
+                  <div id="bidRows">
+                    <div class="order-row" style="--depth:100%;"><div><strong>Meridian Claims Fund</strong><small>完整認購 · 目前領先</small></div><span>US$150,000</span><span class="share-pill">40%</span><span><span class="badge live">開放</span></span></div>
+                    <div class="order-row" style="--depth:100%;"><div><strong>Asteria Litigation Capital</strong><small>完整認購</small></div><span>US$150,000</span><span class="share-pill">45%</span><span><span class="badge review">預覽</span></span></div>
+                    <div class="order-row" style="--depth:80%;"><div><strong>Harbor Special Situations</strong><small>部分認購</small></div><span>US$120,000</span><span class="share-pill">35%</span><span><span class="badge review">預覽</span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="fee-note">畫面重點：投資人看到的是一個競價市場，平台協助案件方找出資金完整且資本成本最低的融資條件。</div>
             </div>
-            <aside class="panel bid-form">
-              <h2>提交融資報價</h2>
+            <aside class="panel auction-ticket">
+              <h2>建立報價</h2>
+              <p>輸入資金承諾與要求回收比例，立即預覽它在市場中的競爭位置。</p>
               <label>資金承諾（美元）<input id="bidAmount" type="number" min="10000" max="150000" step="10000" value="150000"></label>
-              <label>要求回收比例<select id="bidShare"><option value="38">38%</option><option value="40" selected>40%</option><option value="42">42%</option><option value="45">45%</option></select></label>
+              <label>要求回收比例</label>
+              <div class="quick-shares">
+                <button class="quick-share" type="button" data-share="38">38%</button>
+                <button class="quick-share active" type="button" data-share="40">40%</button>
+                <button class="quick-share" type="button" data-share="42">42%</button>
+                <button class="quick-share" type="button" data-share="45">45%</button>
+              </div>
+              <select id="bidShare" style="display:none;"><option value="38">38%</option><option value="40" selected>40%</option><option value="42">42%</option><option value="45">45%</option></select>
               <label>預計完成簽約時間<select><option>5 個工作日</option><option>10 個工作日</option><option>15 個工作日</option></select></label>
               <p class="form-help">送出後進入 30 分鐘確認期；本展示不會建立真實投資承諾。</p>
               <button class="btn primary" style="width:100%;" id="submitBid" type="button">預覽並提交報價</button>
@@ -473,12 +509,24 @@
         </section>
 
         <section class="view" data-view-panel="compliance">
-          <div class="page-head"><div><h1>合規中心</h1><p>目前投資人帳戶與案件存取狀態。</p></div></div>
+          <div class="page-head"><div><h1>用戶資料</h1><p>投資人帳戶、存取權限與展示環境中的資格狀態。</p></div></div>
           <div class="compliance-grid">
-            <div class="compliance-item"><span class="badge done">已完成</span><h3 style="margin-top:12px;">KYC / AML</h3><p>Harbor Special Situations 與授權操作人已完成身分及制裁名單檢查。</p></div>
-            <div class="compliance-item"><span class="badge done">已完成</span><h3 style="margin-top:12px;">投資人資格</h3><p>本帳戶已標記為合格投資人；正式產品需由合規服務商重新驗證。</p></div>
-            <div class="compliance-item"><span class="badge review">案件層級</span><h3 style="margin-top:12px;">權限式存取</h3><p>原告與被告身分維持匿名，完整法律備忘錄須於 NDA 後解鎖。</p></div>
-            <div class="compliance-item"><span class="badge pending">展示環境</span><h3 style="margin-top:12px;">非公開發行</h3><p>本展示不構成公開證券發行、投資要約或任何真實募資活動。</p></div>
+            <aside class="panel profile-card">
+              <div class="profile-avatar">AC</div>
+              <h2>Andy Chen</h2>
+              <p>Harbor Special Situations<br>投資決策人員</p>
+              <div class="profile-meta">
+                <div class="term-row"><span>帳戶類型</span><strong>機構投資人</strong></div>
+                <div class="term-row"><span>工作區</span><strong>Asia Litigation Finance</strong></div>
+                <div class="term-row"><span>目前權限</span><strong>Teaser + NDA 資料室</strong></div>
+              </div>
+            </aside>
+            <div class="profile-sections">
+              <div class="compliance-item"><span class="badge done">已完成</span><h3 style="margin-top:12px;">KYC / AML</h3><p>Harbor Special Situations 與授權操作人已完成身分及制裁名單檢查。</p></div>
+              <div class="compliance-item"><span class="badge done">已完成</span><h3 style="margin-top:12px;">投資人資格</h3><p>本帳戶已標記為合格投資人；正式產品需由合規服務商重新驗證。</p></div>
+              <div class="compliance-item"><span class="badge live">開放</span><h3 style="margin-top:12px;">案件存取</h3><p>可閱覽匿名 teaser；完整法律備忘錄、被告資產地圖與專家材料需 NDA 後解鎖。</p></div>
+              <div class="compliance-item"><span class="badge review">預覽</span><h3 style="margin-top:12px;">展示環境</h3><p>本展示不構成公開證券發行、投資要約或任何真實募資活動。</p></div>
+            </div>
           </div>
         </section>
 
@@ -488,7 +536,7 @@
   </div>
 
   <script>
-    const labels = { dealroom: "投資機會", diligence: "盡調與文件", auction: "融資競標", economics: "回收模型", compliance: "合規中心" };
+    const labels = { dealroom: "投資機會", diligence: "盡調與文件", auction: "融資競標", economics: "回收模型", compliance: "用戶資料" };
     function showView(name) {
       document.querySelectorAll(".view").forEach(el => el.classList.toggle("active", el.dataset.viewPanel === name));
       document.querySelectorAll(".nav-btn").forEach(el => el.classList.toggle("active", el.dataset.view === name));
@@ -506,7 +554,7 @@
         id: "LM-IP-014", title: "半導體智慧財產權執行資產",
         description: "台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路",
         claim: "US$3.0M", funding: "US$150K", fundingNote: "完整認購優先", upside: "US$9.0M",
-        stage: "開放投標", stageNote: "完整盡調已開放", type: "半導體零組件專利侵權",
+        stage: "開放", type: "半導體零組件專利侵權",
         path: "美國聯邦法院／德拉瓦 SPV", timeline: "2023 Q4 發現；2024 Q2 完成初步比對",
         use: "美國律師費、專家報告、技術拆解、文件調閱",
         evidence: "專利登記、claim chart、產品拆解、通路截圖",
@@ -516,7 +564,7 @@
         id: "LM-COM-011", title: "跨境 SaaS 合約違約請求權",
         description: "亞洲企業軟體供應商 v. 海外大型企業客戶",
         claim: "US$5.2M", funding: "US$280K", fundingNote: "初步資金需求", upside: "US$7.5M",
-        stage: "文件審閱", stageNote: "匿名 teaser", type: "跨境軟體服務合約違約",
+        stage: "預覽", type: "跨境軟體服務合約違約",
         path: "新加坡國際商事法庭", timeline: "2025 Q1 終止合約；2025 Q3 發出求償通知",
         use: "訴訟律師費、電子證據保全、損害額專家",
         evidence: "主合約、付款紀錄、服務交付紀錄",
@@ -526,7 +574,7 @@
         id: "LM-ARB-008", title: "製造設備採購仲裁資產",
         description: "精密製造商 v. 跨境設備供應商",
         claim: "US$4.5M", funding: "US$210K", fundingNote: "等待預算確認", upside: "US$6.2M",
-        stage: "暫停流通", stageNote: "等待補件", type: "製造設備採購與履約爭議",
+        stage: "預覽", type: "製造設備採購與履約爭議",
         path: "香港國際仲裁中心", timeline: "2024 Q3 驗收爭議；2025 Q2 提出仲裁通知",
         use: "仲裁費、機械工程專家、損失計算",
         evidence: "採購合約、驗收報告、維修紀錄",
@@ -536,7 +584,7 @@
         id: "LM-EMP-021", title: "核心人才競業與營業秘密請求權",
         description: "台灣成長型科技公司 v. 前高階主管及競爭企業",
         claim: "US$2.4M", funding: "US$95K", fundingNote: "初步資金需求", upside: "US$3.8M",
-        stage: "匿名預覽", stageNote: "Teaser only", type: "競業禁止與營業秘密",
+        stage: "預覽", type: "競業禁止與營業秘密",
         path: "台灣智慧財產及商業法院", timeline: "2025 Q4 人員離職；2026 Q1 發現客戶轉移",
         use: "證據保全、鑑識分析、律師費",
         evidence: "勞動契約、存取紀錄、客戶往來摘要",
@@ -546,7 +594,7 @@
         id: "LM-ENE-019", title: "再生能源 EPC 延誤損害請求權",
         description: "亞太再生能源開發商 v. 國際 EPC 承包商",
         claim: "US$8.1M", funding: "US$360K", fundingNote: "接受投資意向", upside: "US$11.4M",
-        stage: "接受意向", stageNote: "匿名 teaser", type: "工程延誤與履約損害",
+        stage: "預覽", type: "工程延誤與履約損害",
         path: "澳洲聯邦法院／合約爭議程序", timeline: "2024 Q2 施工延誤；2025 Q4 專案商轉",
         use: "工程專家、排程分析、訴訟費用",
         evidence: "EPC 合約、工程日誌、延誤通知",
@@ -556,7 +604,7 @@
         id: "LM-MED-016", title: "醫療器材專利授權爭議",
         description: "亞洲醫療器材研發商 v. 歐洲授權合作方",
         claim: "US$6.7M", funding: "US$240K", fundingNote: "初步資金需求", upside: "US$10.0M",
-        stage: "資料整理", stageNote: "Teaser only", type: "專利授權與權利金爭議",
+        stage: "預覽", type: "專利授權與權利金爭議",
         path: "德國法院／跨境授權合約",
         timeline: "2024 Q4 權利金爭議；2025 Q3 授權終止通知",
         use: "德國律師費、權利金稽核、技術專家",
@@ -574,8 +622,9 @@
       document.getElementById("selectedFunding").textContent = selected.funding;
       document.getElementById("selectedFundingNote").textContent = selected.fundingNote;
       document.getElementById("selectedUpside").textContent = selected.upside;
-      document.getElementById("selectedStage").textContent = selected.stage;
-      document.getElementById("selectedStageNote").textContent = selected.stageNote;
+      const selectedStage = document.getElementById("selectedStage");
+      selectedStage.textContent = selected.stage;
+      selectedStage.className = `badge ${selected.full ? "live" : "review"}`;
       document.getElementById("selectedType").textContent = selected.type;
       document.getElementById("selectedPath").textContent = selected.path;
       document.getElementById("selectedTimeline").textContent = selected.timeline;
@@ -610,6 +659,12 @@
     });
 
     let bidSubmitted = false;
+    document.querySelectorAll(".quick-share").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".quick-share").forEach(item => item.classList.toggle("active", item === button));
+        document.getElementById("bidShare").value = button.dataset.share;
+      });
+    });
     document.getElementById("submitBid").addEventListener("click", () => {
       const amount = Number(document.getElementById("bidAmount").value);
       const share = document.getElementById("bidShare").value;
@@ -622,8 +677,10 @@
       confirm.textContent = `展示報價已建立：${money(amount)}，要求回收比例 ${share}%。此操作不構成真實投資承諾。`;
       confirm.classList.add("show");
       if (!bidSubmitted) {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>—</td><td class="doc-name">您的展示報價<small>Harbor Special Situations</small></td><td>${money(amount)}</td><td>${share}%</td><td><span class="badge review">待確認</span></td>`;
+        const row = document.createElement("div");
+        row.className = "order-row";
+        row.style.setProperty("--depth", `${Math.max(Math.min(amount / 150000 * 100, 100), 8)}%`);
+        row.innerHTML = `<div><strong>您的展示報價</strong><small>Harbor Special Situations · 待確認</small></div><span>${money(amount)}</span><span class="share-pill">${share}%</span><span><span class="badge review">預覽</span></span>`;
         document.getElementById("bidRows").appendChild(row);
         bidSubmitted = true;
       }
