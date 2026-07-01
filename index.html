@@ -129,6 +129,10 @@
     .section { padding: 20px; border-bottom: 1px solid var(--line); }
     .section:last-child { border-bottom: 0; }
     .section h3 { margin: 0 0 14px; font-size: 14px; }
+    .limited-teaser { display: none; padding: 20px; border-bottom: 1px solid var(--line); background: var(--pearl); }
+    .limited-teaser.show { display: block; }
+    .limited-teaser strong { display: block; font-size: 13px; }
+    .limited-teaser p { margin: 7px 0 0; color: var(--graphite); font-size: 12px; line-height: 1.6; }
     .facts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 28px; }
     .fact { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--fog); }
     .fact span { color: var(--muted); font-size: 12px; }
@@ -255,58 +259,80 @@
           </div>
           <div class="layout">
             <div class="panel deal-list">
-              <div class="panel-head"><h2>案件列表</h2><span id="dealCount">3 件</span></div>
-              <button class="deal-item active" data-search="LM-IP-014 半導體 智慧財產權 專利侵權 美國" data-type="ip" data-region="us" data-status="live">
+              <div class="panel-head"><h2>案件列表</h2><span id="dealCount">6 件</span></div>
+              <button class="deal-item active" data-case="ip014">
                 <div class="deal-top"><span class="deal-id">LM-IP-014</span><span class="badge live">開放投標</span></div>
                 <h3>半導體智慧財產權執行資產</h3>
                 <div class="deal-meta">專利侵權 · 美國聯邦法院</div>
                 <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$3.0M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$150K</strong></div></div>
                 <div class="deal-foot"><span>文件 4/6</span><span>截止 17:42</span></div>
               </button>
-              <button class="deal-item" data-search="LM-COM-011 SaaS 合約 違約 商業爭議 新加坡" data-type="commercial" data-region="singapore" data-status="review">
+              <button class="deal-item" data-case="com011">
                 <div class="deal-top"><span class="deal-id">LM-COM-011</span><span class="badge review">文件審閱</span></div>
                 <h3>跨境 SaaS 合約違約請求權</h3>
                 <div class="deal-meta">商業爭議 · 新加坡</div>
                 <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$5.2M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$280K</strong></div></div>
                 <div class="deal-foot"><span>文件 3/7</span><span>更新 2 天前</span></div>
               </button>
-              <button class="deal-item" data-search="LM-ARB-008 製造設備 採購 仲裁 香港" data-type="arbitration" data-region="hongkong" data-status="paused">
+              <button class="deal-item" data-case="arb008">
                 <div class="deal-top"><span class="deal-id">LM-ARB-008</span><span class="badge locked">暫停流通</span></div>
                 <h3>製造設備採購仲裁資產</h3>
                 <div class="deal-meta">國際仲裁 · 香港</div>
                 <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$4.5M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$210K</strong></div></div>
                 <div class="deal-foot"><span>文件 2/6</span><span>等待補件</span></div>
               </button>
+              <button class="deal-item" data-case="emp021">
+                <div class="deal-top"><span class="deal-id">LM-EMP-021</span><span class="badge review">匿名預覽</span></div>
+                <h3>核心人才競業與營業秘密請求權</h3>
+                <div class="deal-meta">僱傭與營業秘密 · 台灣</div>
+                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$2.4M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$95K</strong></div></div>
+                <div class="deal-foot"><span>Teaser only</span><span>更新 4 天前</span></div>
+              </button>
+              <button class="deal-item" data-case="ene019">
+                <div class="deal-top"><span class="deal-id">LM-ENE-019</span><span class="badge live">接受意向</span></div>
+                <h3>再生能源 EPC 延誤損害請求權</h3>
+                <div class="deal-meta">工程合約爭議 · 澳洲</div>
+                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$8.1M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$360K</strong></div></div>
+                <div class="deal-foot"><span>Teaser only</span><span>新增案件</span></div>
+              </button>
+              <button class="deal-item" data-case="med016">
+                <div class="deal-top"><span class="deal-id">LM-MED-016</span><span class="badge review">資料整理</span></div>
+                <h3>醫療器材專利授權爭議</h3>
+                <div class="deal-meta">授權與專利 · 德國</div>
+                <div class="deal-stats"><div class="deal-stat"><span>Claim GMV</span><strong>US$6.7M</strong></div><div class="deal-stat"><span>募資目標</span><strong>US$240K</strong></div></div>
+                <div class="deal-foot"><span>Teaser only</span><span>更新 1 天前</span></div>
+              </button>
             </div>
 
             <article class="panel">
               <div class="asset-header">
                 <div class="asset-title-row">
-                  <div><span class="deal-id">LM-IP-014 · ANONYMIZED TEASER</span><h2>半導體智慧財產權執行資產</h2><p>台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路</p></div>
+                  <div><span class="deal-id" id="selectedId">LM-IP-014 · ANONYMIZED TEASER</span><h2 id="selectedTitle">半導體智慧財產權執行資產</h2><p id="selectedDescription">台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路</p></div>
                   <div class="asset-actions">
-                    <button class="btn secondary" data-go="diligence">檢視盡調</button>
-                    <button class="btn primary" data-go="auction">進入投標</button>
+                    <button class="btn secondary" id="selectedDiligenceButton" data-go="diligence">檢視盡調</button>
+                    <button class="btn primary" id="selectedAuctionButton" data-go="auction">進入投標</button>
                   </div>
                 </div>
               </div>
               <div class="kpis">
-                <div class="kpi"><span>Claim GMV</span><strong>US$3.0M</strong><small>標稱請求權價值</small></div>
-                <div class="kpi"><span>募資目標</span><strong>US$150K</strong><small>完整認購優先</small></div>
-                <div class="kpi"><span>上行情境回收</span><strong>US$9.0M</strong><small>非保證回收</small></div>
-                <div class="kpi"><span>本展示和解情境</span><strong>US$3.0M</strong><small>用於回收模型</small></div>
+                <div class="kpi"><span>Claim GMV</span><strong id="selectedClaim">US$3.0M</strong><small>標稱請求權價值</small></div>
+                <div class="kpi"><span>募資目標</span><strong id="selectedFunding">US$150K</strong><small id="selectedFundingNote">完整認購優先</small></div>
+                <div class="kpi"><span>上行情境回收</span><strong id="selectedUpside">US$9.0M</strong><small>非保證回收</small></div>
+                <div class="kpi"><span>案件狀態</span><strong id="selectedStage">開放投標</strong><small id="selectedStageNote">完整盡調已開放</small></div>
               </div>
               <div class="section">
                 <h3>案件摘要</h3>
                 <div class="facts">
-                  <div class="fact"><span>案件類型</span><strong>半導體零組件專利侵權</strong></div>
-                  <div class="fact"><span>程序路徑</span><strong>美國聯邦法院／德拉瓦 SPV</strong></div>
-                  <div class="fact"><span>侵權時間軸</span><strong>2023 Q4 發現；2024 Q2 完成初步比對</strong></div>
-                  <div class="fact"><span>資金用途</span><strong>美國律師費、專家報告、技術拆解、文件調閱</strong></div>
-                  <div class="fact"><span>已取得證據</span><strong>專利登記、claim chart、產品拆解、通路截圖</strong></div>
-                  <div class="fact"><span>待補文件</span><strong>U.S. counsel memo、完整專家損害額模型</strong></div>
+                  <div class="fact"><span>案件類型</span><strong id="selectedType">半導體零組件專利侵權</strong></div>
+                  <div class="fact"><span>程序路徑</span><strong id="selectedPath">美國聯邦法院／德拉瓦 SPV</strong></div>
+                  <div class="fact"><span>案件時間軸</span><strong id="selectedTimeline">2023 Q4 發現；2024 Q2 完成初步比對</strong></div>
+                  <div class="fact"><span>資金用途</span><strong id="selectedUse">美國律師費、專家報告、技術拆解、文件調閱</strong></div>
+                  <div class="fact"><span>已揭露資料</span><strong id="selectedEvidence">專利登記、claim chart、產品拆解、通路截圖</strong></div>
+                  <div class="fact"><span>待補文件</span><strong id="selectedPending">U.S. counsel memo、完整專家損害額模型</strong></div>
                 </div>
               </div>
-              <div class="section">
+              <div class="limited-teaser" id="limitedTeaser"><strong>此案件目前僅開放匿名 teaser</strong><p>投資人可先檢視案件類型、Claim GMV 與資金需求；完整證據鏈、法律備忘錄及融資競標將於案件通過流通審查後開放。</p></div>
+              <div class="section full-detail-section">
                 <div class="detail-grid">
                   <div class="detail-block">
                     <h3>投資結構</h3>
@@ -327,7 +353,7 @@
                   </div>
                 </div>
               </div>
-              <div class="section">
+              <div class="section full-detail-section">
                 <h3>重要里程碑</h3>
                 <div class="milestones">
                   <div class="milestone"><span>2024 Q2</span><strong>初步侵權比對完成</strong></div>
@@ -336,7 +362,7 @@
                   <div class="milestone"><span>預計成交後 5 日</span><strong>SPV 撥款與案件啟動</strong></div>
                 </div>
               </div>
-              <div class="section">
+              <div class="section full-detail-section">
                 <h3>投資人操作進度</h3>
                 <div class="workflow">
                   <div class="workflow-step"><span>STEP 1</span><strong>匿名 teaser 已閱覽</strong></div>
@@ -473,6 +499,100 @@
     document.body.addEventListener("click", event => {
       const target = event.target.closest("[data-view], [data-go]");
       if (target) showView(target.dataset.view || target.dataset.go);
+    });
+
+    const opportunityCases = {
+      ip014: {
+        id: "LM-IP-014", title: "半導體智慧財產權執行資產",
+        description: "台灣半導體供應鏈中型零組件供應商 v. 海外品牌商及其授權通路",
+        claim: "US$3.0M", funding: "US$150K", fundingNote: "完整認購優先", upside: "US$9.0M",
+        stage: "開放投標", stageNote: "完整盡調已開放", type: "半導體零組件專利侵權",
+        path: "美國聯邦法院／德拉瓦 SPV", timeline: "2023 Q4 發現；2024 Q2 完成初步比對",
+        use: "美國律師費、專家報告、技術拆解、文件調閱",
+        evidence: "專利登記、claim chart、產品拆解、通路截圖",
+        pending: "U.S. counsel memo、完整專家損害額模型", full: true
+      },
+      com011: {
+        id: "LM-COM-011", title: "跨境 SaaS 合約違約請求權",
+        description: "亞洲企業軟體供應商 v. 海外大型企業客戶",
+        claim: "US$5.2M", funding: "US$280K", fundingNote: "初步資金需求", upside: "US$7.5M",
+        stage: "文件審閱", stageNote: "匿名 teaser", type: "跨境軟體服務合約違約",
+        path: "新加坡國際商事法庭", timeline: "2025 Q1 終止合約；2025 Q3 發出求償通知",
+        use: "訴訟律師費、電子證據保全、損害額專家",
+        evidence: "主合約、付款紀錄、服務交付紀錄",
+        pending: "完整通訊紀錄、外部律師程序意見", full: false
+      },
+      arb008: {
+        id: "LM-ARB-008", title: "製造設備採購仲裁資產",
+        description: "精密製造商 v. 跨境設備供應商",
+        claim: "US$4.5M", funding: "US$210K", fundingNote: "等待預算確認", upside: "US$6.2M",
+        stage: "暫停流通", stageNote: "等待補件", type: "製造設備採購與履約爭議",
+        path: "香港國際仲裁中心", timeline: "2024 Q3 驗收爭議；2025 Q2 提出仲裁通知",
+        use: "仲裁費、機械工程專家、損失計算",
+        evidence: "採購合約、驗收報告、維修紀錄",
+        pending: "設備鑑定報告、被告資產資料", full: false
+      },
+      emp021: {
+        id: "LM-EMP-021", title: "核心人才競業與營業秘密請求權",
+        description: "台灣成長型科技公司 v. 前高階主管及競爭企業",
+        claim: "US$2.4M", funding: "US$95K", fundingNote: "初步資金需求", upside: "US$3.8M",
+        stage: "匿名預覽", stageNote: "Teaser only", type: "競業禁止與營業秘密",
+        path: "台灣智慧財產及商業法院", timeline: "2025 Q4 人員離職；2026 Q1 發現客戶轉移",
+        use: "證據保全、鑑識分析、律師費",
+        evidence: "勞動契約、存取紀錄、客戶往來摘要",
+        pending: "數位鑑識報告、損害額工作底稿", full: false
+      },
+      ene019: {
+        id: "LM-ENE-019", title: "再生能源 EPC 延誤損害請求權",
+        description: "亞太再生能源開發商 v. 國際 EPC 承包商",
+        claim: "US$8.1M", funding: "US$360K", fundingNote: "接受投資意向", upside: "US$11.4M",
+        stage: "接受意向", stageNote: "匿名 teaser", type: "工程延誤與履約損害",
+        path: "澳洲聯邦法院／合約爭議程序", timeline: "2024 Q2 施工延誤；2025 Q4 專案商轉",
+        use: "工程專家、排程分析、訴訟費用",
+        evidence: "EPC 合約、工程日誌、延誤通知",
+        pending: "關鍵路徑分析、完整收益損失模型", full: false
+      },
+      med016: {
+        id: "LM-MED-016", title: "醫療器材專利授權爭議",
+        description: "亞洲醫療器材研發商 v. 歐洲授權合作方",
+        claim: "US$6.7M", funding: "US$240K", fundingNote: "初步資金需求", upside: "US$10.0M",
+        stage: "資料整理", stageNote: "Teaser only", type: "專利授權與權利金爭議",
+        path: "德國法院／跨境授權合約",
+        timeline: "2024 Q4 權利金爭議；2025 Q3 授權終止通知",
+        use: "德國律師費、權利金稽核、技術專家",
+        evidence: "授權合約、銷售報表、權利金付款紀錄",
+        pending: "第三方稽核報告、當地律師意見", full: false
+      }
+    };
+    function selectOpportunity(caseKey) {
+      const selected = opportunityCases[caseKey];
+      document.querySelectorAll(".deal-item").forEach(item => item.classList.toggle("active", item.dataset.case === caseKey));
+      document.getElementById("selectedId").textContent = `${selected.id} · ANONYMIZED TEASER`;
+      document.getElementById("selectedTitle").textContent = selected.title;
+      document.getElementById("selectedDescription").textContent = selected.description;
+      document.getElementById("selectedClaim").textContent = selected.claim;
+      document.getElementById("selectedFunding").textContent = selected.funding;
+      document.getElementById("selectedFundingNote").textContent = selected.fundingNote;
+      document.getElementById("selectedUpside").textContent = selected.upside;
+      document.getElementById("selectedStage").textContent = selected.stage;
+      document.getElementById("selectedStageNote").textContent = selected.stageNote;
+      document.getElementById("selectedType").textContent = selected.type;
+      document.getElementById("selectedPath").textContent = selected.path;
+      document.getElementById("selectedTimeline").textContent = selected.timeline;
+      document.getElementById("selectedUse").textContent = selected.use;
+      document.getElementById("selectedEvidence").textContent = selected.evidence;
+      document.getElementById("selectedPending").textContent = selected.pending;
+      document.getElementById("limitedTeaser").classList.toggle("show", !selected.full);
+      document.querySelectorAll(".full-detail-section").forEach(section => section.hidden = !selected.full);
+      const diligenceButton = document.getElementById("selectedDiligenceButton");
+      const auctionButton = document.getElementById("selectedAuctionButton");
+      diligenceButton.disabled = !selected.full;
+      auctionButton.disabled = !selected.full;
+      diligenceButton.textContent = selected.full ? "檢視盡調" : "盡調未開放";
+      auctionButton.textContent = selected.full ? "進入投標" : "尚未開放";
+    }
+    document.querySelectorAll(".deal-item").forEach(item => {
+      item.addEventListener("click", () => selectOpportunity(item.dataset.case));
     });
 
     let accessGranted = false;
